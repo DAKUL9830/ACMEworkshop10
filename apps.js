@@ -4,8 +4,8 @@ const root = document.querySelector('#root');
 
 class Counter extends React.Component{
     /*state={
-        prodCount:0,
-        compCount:0,
+        products:[],
+        companies:[],
 
     }*/
 
@@ -27,7 +27,7 @@ class Counter extends React.Component{
 
 class ProductList extends React.Component {
    
-
+                                               //CREATING PRODUCT LIST
   
     
 
@@ -83,7 +83,7 @@ class List extends React.Component {
              
            })
            this.setState({ companies: compArr});
-            })
+        })
          fetch(products_API)
          .then(product => {
             return product.json();
@@ -95,49 +95,18 @@ class List extends React.Component {
              
            })
            this.setState({ products: prodArr});
-            })
-        }
-   /* setCountComp(compCount){
-        this.setState({compCount})
-    }
-    setCountProd(prodCount){
-        this.setState({prodCount})
-    }*/
-     /*incrementProd(){
-         const {prodCount}=this.state;
-         this.setState({
-             prodCount:prodArr.length
-         })
-        }
-         incrementComp(){
-            const {compCount}=this.state;
-            this.setState({
-                compCount:compArr.length
-            })
+            
+        })
+        
 
-    }*/
+        }
+   
 
 render(){
     const { companies, products } = this.state;
 
-    // return React.createElement (
-    //     'ul',
-    //     null,
-    //     products.map((product) => {
-    //         console.log(product)
-    //     })
-    // )
-    // const nav = React.createElement(Nav, { companies, products, view});
-    // let chosenView;
-    // if (view === 'companies') {
-    //     chosenView = React.createElement(CompanyList, { companies });
-
-    // }
-    // if (view === 'products') {
-    //     chosenView = React.createElement(ProductList, { products });
-    // }
-    return React.createElement('div', null, React.createElement(Counter,{products,companies,}),React.createElement(ProductList,{products}),React.createElement(CompanyList,{companies}));
-   // return React.createElement('div', null, React.createElement(ProductList));
+    return React.createElement('div', null, React.createElement(Counter,{products,companies,}),React.createElement(ProductList,{products,}),React.createElement(CompanyList,{companies,}));
+   
 }
 }
 ReactDOM.render(React.createElement(List), root);
